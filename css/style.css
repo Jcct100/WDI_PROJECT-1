@@ -1,3 +1,103 @@
-body {
-background: blue;
+
+
+/*body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    /*background-color:;*/
+    /*position: absolute;*/
+  /*}*/
+
+  * {
+    box-sizing: border-box;
+  }
+
+
+
+
+
+  body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #4286f4;
+  }
+  html {
+      height: 100%;
+  }
+
+ .box1 {
+  width:50px;
+  height:50px;
+  background-color: black;
+  border:1px solid black;
+  display: none;
+  /*position: absolute;*/
+  /*bottom: 10px;*/
 }
+
+.box2 {
+  width:50px;
+  height:50px;
+  background-color: black;
+  border:1px solid black;
+  display: none;
+
+  /*bottom: 0px;*/
+  /*position: absolute;*/
+}
+
+.box3 {
+  width:50px;
+  height:50px;
+  background-color: black;
+  border:1px solid black;
+  display: none;
+}
+
+.box4 {
+  width:50px;
+  height:50px;
+  background-color: black;
+  border:1px solid black;
+  display: none;
+}
+
+.box5 {
+  width:50px;
+  height:50px;
+  background-color: black;
+  border:1px solid black;
+  display: none;
+}
+
+.box6 {
+  width:50px;
+  height:50px;
+  background-color: black;
+  border:1px solid black;
+  position: absolute;
+  bottom: 0px;
+}
+
+.wrapper {
+  position: absolute;
+  bottom: 0px;
+}
+
+/*body {
+  background-color: #4286f4;
+  height: 452px;
+  width:499px;
+  position: relative;
+}*/
+
+/*header {
+  background-color: grey;
+  height:100px;
+}*/
+
+/*footer {
+  background-color: green;
+  height:452px;
+}*/
