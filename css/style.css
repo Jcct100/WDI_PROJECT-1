@@ -1,103 +1,73 @@
 
 
-/*body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    /*background-color:;*/
-    /*position: absolute;*/
-  /*}*/
-
   * {
     box-sizing: border-box;
   }
 
 
+.hole1 {
+  width: 200px;
+  	height: 100px;
+  	background: #300000;
+  	border-radius: 100px / 50px;
+    position: absolute;
+    margin: 300px 250px;
+}
+
+.hole2 {
+  width: 200px;
+  	height: 100px;
+  	background: #300000;
+  	border-radius: 100px / 50px;
+    position: absolute;
+    margin: 300px 500px;
+}
+
+.hole3 {
+  width: 200px;
+  	height: 100px;
+  	background: #300000;
+  	border-radius: 100px / 50px;
+    position: absolute;
+    margin: 300px 750px;
+}
+
+.hole4 {
+  width: 200px;
+  	height: 100px;
+  	background: #300000;
+  	border-radius: 100px / 50px;
+    position: absolute;
+    margin: 500px 250px 200px 250px;
+}
+
+.hole5 {
+  width: 200px;
+  	height: 100px;
+  	background: #300000;
+  	border-radius: 100px / 50px;
+    position: absolute;
+    margin: 500px 500px 200px 500px;
+}
+
+.hole6 {
+  width: 200px;
+  	height: 100px;
+  	background: #300000;
+  	border-radius: 100px / 50px;
+    position: absolute;
+    margin: 500px 750px 200px 750px;
+}
 
 
 
-  body {
+body {
       height: 100%;
       margin: 0;
       padding: 0;
       background-color: #4286f4;
+      position: relative;
   }
-  html {
+html {
       height: 100%;
   }
-
- .box1 {
-  width:50px;
-  height:50px;
-  background-color: black;
-  border:1px solid black;
-  display: none;
-  /*position: absolute;*/
-  /*bottom: 10px;*/
-}
-
-.box2 {
-  width:50px;
-  height:50px;
-  background-color: black;
-  border:1px solid black;
-  display: none;
-
-  /*bottom: 0px;*/
-  /*position: absolute;*/
-}
-
-.box3 {
-  width:50px;
-  height:50px;
-  background-color: black;
-  border:1px solid black;
-  display: none;
-}
-
-.box4 {
-  width:50px;
-  height:50px;
-  background-color: black;
-  border:1px solid black;
-  display: none;
-}
-
-.box5 {
-  width:50px;
-  height:50px;
-  background-color: black;
-  border:1px solid black;
-  display: none;
-}
-
-.box6 {
-  width:50px;
-  height:50px;
-  background-color: black;
-  border:1px solid black;
-  position: absolute;
-  bottom: 0px;
-}
-
-.wrapper {
-  position: absolute;
-  bottom: 0px;
-}
-
-/*body {
-  background-color: #4286f4;
-  height: 452px;
-  width:499px;
-  position: relative;
-}*/
-
-/*header {
-  background-color: grey;
-  height:100px;
-}*/
-
-/*footer {
-  background-color: green;
-  height:452px;
-}*/
