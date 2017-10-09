@@ -1,23 +1,61 @@
 
+//pseudo code"
 
-//pesudo code
-//1)you have 60 seconds to get as many hits as possible once its up display score.
-//2)each hit is one point (score display)
-//3)each hit will alert a fact about elephants
-//3b)each hit will make a sound.
-//4)click play to start?
-//5)click reset to reset game?
-//6)the game gets more difficult as the time the image appear will speed up.
-//7)music will play in the background
+//you have 60 seconds to lead the herds and
+//you have to avoid obtacles on the way.
+//2D game.
+//jump over poachers, train lines, uncovered wells, road building.
+//something to display the score. every jump is recorded.
+//if you fall is gameover.
+//alert box: play again? + show total score.
+
+//coding logic:
+//create the image: canvas, img etc.
+//create event: press space or click to jump?
+//module pattern to create game objects?
+//audio file for game music.
+//click to start game?
+//when there is a jump, add 1 to the score.
+//display score.
+
+//problems:
+//how to create the animation character..google
+//how to make it jump..interactive with collision.
+//how to define the gravity.
+//how to create object obtacles.
+//how to make it move. event...
+//make the background move. gif
+//.position()  .offset()
+
+//click events,
+
+
+//pesudo code:
+//1)one click or type event,
+//2)time interval to start the loop
+//3)loop through the boxes, reverse?
+//4)each loop show a different colour and hide it.
+//5)and loop back.?
+
+//challenge will be the timing of my functions being called? callbacks? setup scope.
+
+//make a click event for box6. //that click must be able to access the loop
+
+//click change color to black.
+//read about time interval and show/hide
 
 $(() => {
 
+  const $box = $('body');
+  const $box6 = $('.box6');
+  $box.on('click', jump);
 
-// const $box = $('body');
-// $box.on('click', jump);
+  function jump() {
+    $box6.animate({ 'bottom': '+=300'  }, 'slow', drop);
+  }
 
-
-
-
+  function drop() {
+    $box6.animate({ 'bottom': '-=300' });
+  }
 
 });
