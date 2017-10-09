@@ -43,19 +43,49 @@
 
 //click change color to black.
 //read about time interval and show/hide
+let $div;
 
 $(() => {
 
   const $box = $('body');
-  const $box6 = $('.box6');
+  const $box6 = $('.box');
+  // const $obtacle = $('.obtacles');
+
+  // const $obtacle = $('.obtacle');
   $box.on('click', jump);
 
+
+  // setInterval(function () {
+
   function jump() {
-    $box6.animate({ 'bottom': '+=300'  }, 'slow', drop);
+    $box6.animate({ 'bottom': '300'  }, 'slow', drop);
+  }
+  function drop() {
+    $box6.animate({ 'bottom': '0' });
   }
 
-  function drop() {
-    $box6.animate({ 'bottom': '-=300' });
+  // $obtacle.on('click', sideway);
+
+  // setInterval(sideway, 1000);
+
+// setInterval(sideway,speed);
+
+
+  setInterval(createobtacles, 3000);
+
+  function createobtacles() {
+    const $box = $('<div class="obtacles2"></div>');
+    $('body').append($box);
+    animateBox($box);
   }
+
+  function animateBox($box) {
+    $box.animate({ 'right': '2500' }, 5000);
+  }
+
+
+
+
+
 
 });
