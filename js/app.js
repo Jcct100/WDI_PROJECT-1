@@ -1,91 +1,68 @@
-
-//pseudo code"
-
-//you have 60 seconds to lead the herds and
-//you have to avoid obtacles on the way.
-//2D game.
-//jump over poachers, train lines, uncovered wells, road building.
-//something to display the score. every jump is recorded.
-//if you fall is gameover.
-//alert box: play again? + show total score.
-
-//coding logic:
-//create the image: canvas, img etc.
-//create event: press space or click to jump?
-//module pattern to create game objects?
-//audio file for game music.
-//click to start game?
-//when there is a jump, add 1 to the score.
-//display score.
-
-//problems:
-//how to create the animation character..google
-//how to make it jump..interactive with collision.
-//how to define the gravity.
-//how to create object obtacles.
-//how to make it move. event...
-//make the background move. gif
-//.position()  .offset()
-
-//click events,
-
-
-//pesudo code:
-//1)one click or type event,
-//2)time interval to start the loop
-//3)loop through the boxes, reverse?
-//4)each loop show a different colour and hide it.
-//5)and loop back.?
-
-//challenge will be the timing of my functions being called? callbacks? setup scope.
-
-//make a click event for box6. //that click must be able to access the loop
-
-//click change color to black.
-//read about time interval and show/hide
-let $div;
+// let $newObtacles;
+// let obtaclePos;
 
 $(() => {
 
-  const $box = $('body');
-  const $box6 = $('.box');
-  // const $obtacle = $('.obtacles');
+  let activeJump = false;
 
-  // const $obtacle = $('.obtacle');
-  $box.on('click', jump);
+  const $click = $('body');
+  const $PlayerBox = $('.box');
+  
+  $click.on('click', jump);
 
-
-  // setInterval(function () {
+  //make PlayerBox jump
 
   function jump() {
-    $box6.animate({ 'bottom': '300'  }, 'slow', drop);
+    // activeJump = true
+    $PlayerBox.animate({ 'bottom': '300'  }, 'slow', drop);
   }
   function drop() {
-    $box6.animate({ 'bottom': '0' });
+    $PlayerBox.animate({ 'bottom': '0' });
+    // activeJump = false
   }
 
-  // $obtacle.on('click', sideway);
-
-  // setInterval(sideway, 1000);
-
-// setInterval(sideway,speed);
-
+  //Create New Obtacles every 3 seconds
 
   setInterval(createobtacles, 3000);
 
   function createobtacles() {
-    const $box = $('<div class="obtacles2"></div>');
-    $('body').append($box);
-    animateBox($box);
+    const $newObtacle = $('<div class="obtacle"></div>');
+    $('body').append($newObtacle);
+    // console.log(newobtaclepos + 'im the box position');
+    animateBox($newObtacle);
   }
 
-  function animateBox($box) {
-    $box.animate({ 'right': '2500' }, 5000);
+  function animateBox($newObtacle) {
+    $newObtacle.animate({
+      'left': '-800'
+    }, {
+      duration: 5000,
+      step: function() {
+        if (collisions($PlayerBox, $newObtacle)) {
+          console.log('game over');
+          $newObtacle.remove();
+        }
+      }
+
+    });
+
   }
 
-
-
-
-
+  function collisions($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight(true);
+    var w1 = $div1.outerWidth(true);
+    var b1 = y1 + h1;
+    var r1 = x1 + w1;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight(true);
+    var w2 = $div2.outerWidth(true);
+    var b2 = y2 + h2;
+    var r2 = x2 + w2;
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+  }
 
 });

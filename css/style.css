@@ -1,38 +1,28 @@
-
 * {
-  box-sizing: border-box;
+ box-sizing: border-box;
 }
-
-
-
-
 
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #4286f4;
+   height: 100%;
+   margin: 0;
+   padding: 0;
+   background-color: #4286f4;
 }
 html {
-    height: 100%;
+   height: 100%;
 }
 
-.obtacles2 {
-  width:100px;
-  height:100px;
-  margin-left: 1200px;
-  background-color: black;
-  position: absolute;
-  bottom: 0;
-  /*animation: mymove 5s infinite;
-  animation-duration: 1s;*/
-  /*animation-iteration-count: 3;*/
-}
+/*Class for Creating New Obtacles*/
 
-/*@keyframes mymove {
-  from {'left': 0px;}
-  to {left: 400px;}
- }*/
+.obtacle {
+ width:50px;
+ height:50px;
+ margin-left: 500px;
+ background-color: black;
+ position: absolute;
+ bottom: 0;
+}
+/*Class for PlayerBox */
 
 .box {
 width:50px;
@@ -40,9 +30,4 @@ height:50px;
 background-color: black;
 position: absolute;
 bottom: 0;
-}
-
-.wrapper {
-position: absolute;
-bottom: 0px;
 }
