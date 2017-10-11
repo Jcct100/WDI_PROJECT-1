@@ -32,6 +32,16 @@ button {
   bottom: 0;
   right: 0;
 }
+/*Class for Creating New Obtacles2*/
+.obtacle2 {
+  width:100px;
+  height:100px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 /*Class for PlayerBox */
 
 .box {
