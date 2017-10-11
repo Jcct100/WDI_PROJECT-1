@@ -33,15 +33,10 @@ $(() => {
     setInterval(timer);
   }
 
-  // when time is 20 add level 2
-  // if (time === 20) {
-  //   setInterval(createobtacles2, 5000);
-  // }
-
   //set timer
   let time = 30;
   const timer = setInterval(() => {
-    time --;
+    time--;
     $time.html(time);
     checkValue();
   }, 1000);
@@ -56,7 +51,6 @@ $(() => {
   }
 
   //make PlayerBox jump
-
   $click.on('keydown', jump);
 
   function jump(e) {
@@ -90,10 +84,7 @@ $(() => {
   }
 
   //create new obtacles
-
-
   let boxInterval = setInterval(createobtacles, Math.floor(Math.random() * 3000) + 1000);
-  // createobtacles();
 
   function createobtacles() {
     const $newObtacle = $('<div class="obtacle"></div>');
@@ -131,45 +122,6 @@ $(() => {
 
     });
 
-
-  //   let boxInterval2 = setInterval(createobtacles2, 5000);
-  //   // createobtacles();
-  //
-  //   function createobtacles2() {
-  //     const $newObtacle2 = $('<div class="obtacle2"></div>');
-  //     $('body').append($newObtacle2);
-  //     animateBox($newObtacle2);
-  //   }
-  //
-  //   function animateBox($newObtacle2) {
-  //     $newObtacle2.animate({
-  //       'right': `${$('body').width()}`
-  //     }, {
-  //       duration: 6000,
-  //       step: function() {
-  //         if (collisions($PlayerBox, $newObtacle2)) {
-  //           console.log('game over');
-  //           // alert('game over')
-  //           $newObtacle2.remove();
-  //           lives -=1;
-  //           if (lives === 0) {
-  //             $PlayerBox.hide();
-  //             $reset.show();
-  //             clearInterval(boxInterval);
-  //             clearInterval(timer);
-  //           }
-  //         }
-  //       },
-  //       complete: function() {
-  //         $newObtacle2.remove();
-  //         counter +=1;
-  //         if (counter % 3 === 0 ) {
-  //           PoPupMessage();
-  //         }
-  //       }
-  //
-  //     });
-  //
     function collisions($div1, $div2) {
       var x1 = $div1.offset().left;
       var y1 = $div1.offset().top;
@@ -186,9 +138,5 @@ $(() => {
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
       return true;
     }
-  //
   }
-
-//when click to reset game
-
 });
