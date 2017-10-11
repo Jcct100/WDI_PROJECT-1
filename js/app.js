@@ -2,6 +2,10 @@
 //add different size divs at different speed //different level
 //landing page, audio, images, emoji adn style tomorrow or today if finished.
 
+//different levels.
+//1)add a timer.
+//2)when timer is over 20 then add flying objects.
+//3)and when timer is over 30 seconds then add bigger divs.
 
 $(() => {
 
@@ -11,25 +15,29 @@ $(() => {
   let counter = 0;
   let lives = 3;
   const $reset = $('button');
+  const $time =  $('.timer');
 
+  //set timer
+  let time = 30;
+  const timer = setInterval(() => {
+    time --;
+    $time.html(time);
+    checkValue();
+  }, 1000);
 
-  // let startgame = true;
-  //
-  // while (startgame) {
-  //   jump();
-  //   drop();
-  //   PoPupMessage();
-  //   createobtacles();
-  //   animateBox();
-  //   collision();
-  // }
-  //
+  function checkValue() {
+    if (time <= 0) {
+      clearInterval(timer);
+    }
+  }
+
+  //reset the game
   $reset.on('click', reset);
   function reset() {
-    let lives = 3;
+    lives = 3;
     $PlayerBox.show();
     $reset.hide();
-    // startgame = false;
+    boxInterval = setInterval(createobtacles, 5000);
   }
 
   $click.on('click', jump);
@@ -38,13 +46,8 @@ $(() => {
 
   function jump() {
     // activeJump = true
-    $PlayerBox.animate({ 'bottom': '300'  }, 'slow', drop);
-    counter +=1;
+    $PlayerBox.animate({ 'bottom': '500'  }, 800, drop);
     console.log(counter);
-    if (counter % 3 === 0) {
-      console.log('show message now');
-      PoPupMessage();
-    }
   }
   function drop() {
     $PlayerBox.animate({ 'bottom': '0' });
@@ -64,7 +67,8 @@ $(() => {
 
   //create new obtacles
 
-  setInterval(createobtacles, 3000);
+
+  let boxInterval = setInterval(createobtacles, 5000);
   createobtacles();
 
   function createobtacles() {
@@ -77,7 +81,7 @@ $(() => {
     $newObtacle.animate({
       'right': `${$('body').width()}`
     }, {
-      duration: 5000,
+      duration: 6000,
       step: function() {
         if (collisions($PlayerBox, $newObtacle)) {
           console.log('game over');
@@ -87,13 +91,16 @@ $(() => {
           if (lives === 0) {
             $PlayerBox.hide();
             $reset.show();
+            clearInterval(boxInterval);
           }
-        } else {
-          // PoPupMessage();
         }
       },
       complete: function() {
         $newObtacle.remove();
+        counter +=1;
+        if (counter % 3 === 0 ) {
+          PoPupMessage();
+        }
       }
 
     });
