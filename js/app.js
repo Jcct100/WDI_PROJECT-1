@@ -5,16 +5,25 @@ $(() => {
   let counter = 0;
   let lives = 3;
   let jumping;
+  let time= 30;
 
   const $click = $('body');
   const $PlayerBox = $('.box');
-  const $reset = $('button');
+  const $reset = $('.restart');
   const $time =  $('.timer');
   const $congrat = $('.congrat');
   const $level2 = $('.level2');
+  let currentobtacle = $('<div class="obstacle">&#128293;</div>');
 
   $congrat.hide();
   $level2.hide();
+
+  //play music
+  // $window.onload();
+  //
+  // function audio() {
+  //
+  // }
 
   //reset the game
   $reset.on('click', reset);
@@ -25,12 +34,12 @@ $(() => {
     $time.html(time);
     $PlayerBox.show();
     $reset.hide();
+    // setInterval(timer);
     boxInterval = setInterval(createobtacles, 5000);
-    setInterval(timer);
   }
 
   //set timer
-  let time = 30;
+  // let time = 30;
   const timer = setInterval(() => {
     time--;
     $time.html(time);
@@ -39,28 +48,19 @@ $(() => {
 
 
   function checkValue() {
-    if (time < 15 ) {
-      clearInterval(boxInterval);
-      $level2.show();
+    if (time === 15 ) {
+      // clearInterval(boxInterval);
+      currentobtacle = $('<div class="obstacle2">&#128293;</div>');
+      // $level2.show();
       boxInterval = setInterval(createobtacles, 1000);
     } else if (time === 0) {
       clearInterval(timer);
       setInterval(timer);
       clearInterval(boxInterval);
       setInterval(finishline,3000);
+      currentobtacle.hide();
     }
   }
-
-  const $newObtacle2 = $('<div class="obtacle2"></div>');
-
-  // function checkValue() {
-  //   if  (time === 0) {
-  //     clearInterval(timer);
-  //     setInterval(timer);
-  //     clearInterval(boxInterval);
-  //     setInterval(finishline,3000);
-  //   }
-  // }
 
   function finishline() {
     $congrat.show();
@@ -101,9 +101,10 @@ $(() => {
   let boxInterval = setInterval(createobtacles, Math.floor(Math.random() * 3000) + 1000);
 
   function createobtacles() {
-    const $newObtacle = $('<div class="obtacle"></div>');
+    const $newObtacle = currentobtacle;
+    console.log($newObtacle);
     $newObtacle.css('right', '-300px');
-    $('body').append($newObtacle);
+    $('.game').append($newObtacle);
     animateBox($newObtacle);
   }
 
@@ -129,7 +130,7 @@ $(() => {
       complete: function() {
         $newObtacle.remove();
         counter +=1;
-        if (counter % 3 === 0 ) {
+        if (counter % 3 === 0 && lives > 0) {
           PoPupMessage();
         }
       }
