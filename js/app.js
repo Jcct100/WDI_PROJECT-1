@@ -1,11 +1,4 @@
 
-//add different size divs at different speed //different level
-//landing page, audio, images, emoji adn style tomorrow or today if finished.
-
-//different levels.
-//1)add a timer. reset timer is not working.
-//2)when timer is under 20 then add flying objects.
-//3)and when timer is over 30 seconds then add bigger divs.
 
 $(() => {
 
@@ -13,12 +6,15 @@ $(() => {
   let lives = 3;
   let jumping;
 
-  // let activeJump = false;
   const $click = $('body');
   const $PlayerBox = $('.box');
   const $reset = $('button');
   const $time =  $('.timer');
+  const $congrat = $('.congrat');
+  const $level2 = $('.level2');
 
+  $congrat.hide();
+  $level2.hide();
 
   //reset the game
   $reset.on('click', reset);
@@ -41,13 +37,33 @@ $(() => {
     checkValue();
   }, 1000);
 
+
   function checkValue() {
-    if (time < 30 ) {
-      console.log('hi');
-    }  else if (time === 0) {
-      console.log('ok');
+    if (time < 15 ) {
+      clearInterval(boxInterval);
+      $level2.show();
+      boxInterval = setInterval(createobtacles, 1000);
+    } else if (time === 0) {
       clearInterval(timer);
+      setInterval(timer);
+      clearInterval(boxInterval);
+      setInterval(finishline,3000);
     }
+  }
+
+  const $newObtacle2 = $('<div class="obtacle2"></div>');
+
+  // function checkValue() {
+  //   if  (time === 0) {
+  //     clearInterval(timer);
+  //     setInterval(timer);
+  //     clearInterval(boxInterval);
+  //     setInterval(finishline,3000);
+  //   }
+  // }
+
+  function finishline() {
+    $congrat.show();
   }
 
   //make PlayerBox jump
@@ -57,7 +73,6 @@ $(() => {
     if (e.keyCode !== 32 || jumping) return false;
     jumping = true;
 
-    // activeJump = true
     $PlayerBox.animate({
       'bottom': '200'
     }, 'slow', 'swing', drop);
@@ -69,7 +84,6 @@ $(() => {
     }, 1000, () => {
       jumping = false;
     });
-    // activeJump = false
   }
 
   // alert message after jump
