@@ -12,9 +12,10 @@ p, div, h1, button {
 
 body {
   height: 100vh;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
-  background-color: #4286f4;
+  background-color: #6cce27;
 }
 
 
@@ -23,7 +24,7 @@ body {
 /* *********************** */
 
 header {
- background-color: red;
+ background-color: green;
  height: 20vh;
 }
 
@@ -34,6 +35,7 @@ header {
   position: relative;
 }
 
+/*.messagebox*/
 .timebox, .messagebox {
   background-color: green;
   width: 20%;
@@ -52,7 +54,7 @@ header {
 }
 
 .timer {
-  background-color: blue;
+  background-color: #6cce27;
 }
 
 .lives ul li {
@@ -60,8 +62,9 @@ header {
 }
 
 .logobox {
-  background-color: blue;
+  background-color: #6cce27;
   width:60%;
+  /*float: right;*/
 }
 
 .logobox img {
@@ -72,10 +75,18 @@ h1 {
   margin: 10px auto;
 }
 
+h5 {
+  font-size: 10px;
+}
+
+.warningmessage {
+  color: red;
+}
+
 /*Class for displaying message*/
 
-.message {
-  background-color:#f45342;
+.message  {
+  background-color:#6cce27;
   font-size: 10px;
   padding: 20px;
 }
@@ -94,7 +105,10 @@ h1 {
 }
 
 .restart {
+  position: relative;
+  z-index: 3;
   text-align: center;
+  display: none;
 }
 
 button {
@@ -105,7 +119,6 @@ button {
   font-size: 30px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px #000000;
-  display: none;
 }
 
 .box, .obstacle, .obstacle2 {
@@ -129,87 +142,13 @@ button {
   font-size: 50px;
   width: 50px;
   height: 50px;
-  right: 0;
+  /*right: 0;*/
   z-index: 1;
 }
 
 .obstacle2 {
   font-size: 100px;
-  width: 100px;
-  height: 100px;
-}
-
-
-
-/*Class for PlayerBox */
-
-/*.box {
   width: 50px;
   height: 50px;
-  position: absolute;
-  bottom: 50px;
-  left: 200px;
-  font-size: 120px;
-  line-height: 50px;
-  -moz-transform: scale(-1, 1);
-  -webkit-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
-  transform: scale(-1, 1);
-  margin-bottom: 60px;
-}*/
-
-/*Class for Creating New Obtacles*/
-
-/*.obstacle {
-  width:50px;
-  height:50px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  overflow: hidden;
-  font-size: 120px;
-  line-height: 50px;
-  margin-bottom: 60px;
-}*/
-
-/*Class for Creating New Obtacles2*/
-/*.obstacle2 {
-  width:100px;
-  height:100px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 120px;
-  overflow: hidden;
-  margin-bottom: 60px;
-}*/
-
-
-
-
-
-
-/*Reset*/
-
-/*.button {
-  display: none;
-  text-align: center;
-  font-weight: bold;
-  color:#fff;
-  background-color: #429000;
-  padding:10px 5px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 10px solid #429000;
-  width: 200px;
-  font-size: 30px;
-  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.15);
-  margin-top: 250px;
-  margin-left: 600px;
-  position: absolute;
-}*/
+  /*right: 0;*/
+}
