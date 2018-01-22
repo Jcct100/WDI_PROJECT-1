@@ -46,16 +46,22 @@ function PoPupMessage() {
   } 
 ```
 
-Writing code for the PoPupMessage went well as I manage to do this very quickly. I approach this by first writing a function and name it as "PopupMessage" so that other people reading my code will understand what it does. I then created an array of strings. I used the function Math.random() to pick a random number within the length of the array. Then show that particular string in the array by accessing it using 
+Writing code for the PoPupMessage went well as I manage to do this very quickly. I approach this by first writing a function and name it as "PopupMessage". I named it "PopupMessage" so that other people reading my code can understand what it does. I created an array of strings and used the function Math.random() to pick a random number within the length of the array. Then show that particular string in the array by accessing it using 
 
 ```
     $message.text(Messages[i]);
 ```
 The set timeout function was useful as I was using that to hide the message every 10 seconds.
 
+```
+    setTimeout(() => {
+      $('.message').hide();
+    }, 10000);
+```
+
 ### Challenges:
 
-The challenging part after writing the function for the pop up message of my game was to write the logic to only show the message only when the player manages to jump over the fire three times. I manage to do this by writing a conditional function. So if the player jumps three times and still alives then invoke the function PoPupMessage(). 
+The challenging part after writing the function was to write the logic so that it will only show the message when the player jumps over the fire three times. I manage to do this by writing a conditional function. So if the player jumps three times and still alive then invoke the function PoPupMessage(). 
 
 ```
         if (counter % 3 === 0 && lives > 0) {
